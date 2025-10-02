@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Power Calculator</title>
+</head>
+<style>
+    h2{
+        background-color: bisque;
+    }
+    h3{
+        background-color: aquamarine;
+    }
+    label{
+        background-color: aquamarine;
+    }
+    h3{
+        background-color:grey;
+    }
+    body{
+        background-color: cornflowerblue;
+    }
+</style>
+<body>
+  <h2>Incandescent Bulb Power Calculator</h2>
+
+  <label>Intensity (I) in amperes:</label><br>
+  <input type="number" id="intensity"><br><br>
+
+  <label>Resistance (R) in ohms:</label><br>
+  <input type="number" id="resistance"><br><br>
+
+  <button onclick="calculatePower()">Calculate Power</button>
+
+  <h3 id="result"></h3>
+
+  <script>
+    function calculatePower() {
+      var I = parseFloat(document.getElementById("intensity").value);
+      var R = parseFloat(document.getElementById("resistance").value);
+
+      if (!isNaN(I) && !isNaN(R)) {
+        var P = I * I * R;
+        document.getElementById("result").innerText = "Power (P) = " + P.toFixed(2) + " watts";
+      } else {
+        document.getElementById("result").innerText = "Please enter both values.";
+      }
+    }
+  </script>
+</body>
+</html>
